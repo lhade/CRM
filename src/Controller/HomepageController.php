@@ -33,7 +33,6 @@ class HomepageController extends AbstractController
             $contact->getId();
             $em ->remove($contact);
             $em->flush();
-        
 
         return $this->redirectToRoute('homepage_display', [], Response::HTTP_SEE_OTHER);
     }
@@ -72,5 +71,23 @@ class HomepageController extends AbstractController
             'contact' => $contact,
             'form' => $form,
         ]);
+    }
+
+    public function isValidMail($email){
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function isValidPhone($phone){
+        if(strlen($phone == 10)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
