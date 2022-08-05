@@ -6,6 +6,7 @@ table {
     border: medium solid #6495ed;
     border-collapse: collapse;
     width: 50%;
+    margin-bottom: 5px;;
     }
     th {
     font-family: monospace;
