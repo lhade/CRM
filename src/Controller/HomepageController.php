@@ -27,13 +27,13 @@ class HomepageController extends AbstractController
         ]);
     }
 
-    #[Route('delete/{id}', name: 'delete')]
+    #[Route('delete/{id}', name: 'delete', methods: ['GET', 'POST'])]
     public function deleteContact(Request $request, EntityManagerInterface $em, Contact $contact): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$contact->getId(), $request->request->get('_token'))) {
+            $contact->getId();
             $em ->remove($contact);
             $em->flush();
-        }
+        
 
         return $this->redirectToRoute('homepage_display', [], Response::HTTP_SEE_OTHER);
     }

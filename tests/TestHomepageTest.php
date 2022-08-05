@@ -9,18 +9,18 @@ use PHPUnit\Framework\Assert;
 
 class TestHomepageTest extends KernelTestCase
 {
-    public function testIndex(): void
-    {
+    private function setContact(){
         $contact = new Contact();
         $contact    ->setFirstname('Guigui')
                     ->setLastname('Jojo')
                     ->setEmail('coucoujetest@gmail.com')
                     ->setPhone('70.07.70.07.70');
-        $kernel = self::bootKernel();
-
-
-        //$this->assertSame('test', $kernel->getEnvironment());
-        // $routerService = static::getContainer()->get('router');
-        // $myCustomService = static::getContainer()->get(CustomService::class);
     }
+
+
+    public function testNotEmptyFirstname(): void{
+            $goodFirstname = $this->$contact->firstname;
+            $this->assertTrue($goodFirstname != "");
+        }
+
 }
