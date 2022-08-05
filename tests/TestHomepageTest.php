@@ -77,6 +77,13 @@ class TestHomepageTest extends TestCase
         $validMail = $this->homepageController->isValidMail($this->contact->getEmail());
         $this->assertTrue($validMail);
     }
+    /**
+     * @return void
+     */
+    public function testMailnotValid(): void{
+        $notValidMail = $this->homepageController->isValidMail($this->contactfalse->getEmail());
+        $this->assertFalse($notValidMail);
+    }
 
     /**
      * @return void
