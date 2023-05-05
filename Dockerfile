@@ -22,3 +22,5 @@ COPY ./symfony .
 
 # CMD 
 RUN composer install
+
+EXPOSE 9000
